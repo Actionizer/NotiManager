@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
 jobs:
   build:
+    permissions:
+      contents: write
     name: init
     runs-on: macos-latest
     steps:
@@ -12,3 +14,7 @@ jobs:
         run: |
           cd ${{ GITHUB.WORKSPACE }}
           swift package init
+      - name: Setup credentials
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
