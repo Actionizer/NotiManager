@@ -20,5 +20,6 @@ let package = Package(
         .target(
             name: "NotiManager",
             path: ".",
+        )
     ]
 )
